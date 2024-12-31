@@ -7,7 +7,7 @@ import ProductModel from "../schema/Product.model";
 import { ViewInput } from '../libs/types/view';
 import { ViewGroup } from '../libs/enums/view.enum';
 import { ObjectId } from "mongoose";
-import ViewService from "./View.service";
+import ViewService from './View.Service';
 
 
 class ProductService {
@@ -66,7 +66,7 @@ class ProductService {
         viewRefId: productId,
         viewGroup: ViewGroup.PRODUCT,
       };
-      const existView = await this.viewService.checkViewExistance(input);
+      const existView = await this.viewService.checkViewExistence(input);
 
       console.log("exist:", !!existView);
       if (!existView) {

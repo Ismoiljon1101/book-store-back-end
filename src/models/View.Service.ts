@@ -1,6 +1,6 @@
+import ViewModel from "../schema/View.model";
 import Errors, { HttpCode, Message } from "../libs/Errors";
 import { View, ViewInput } from "../libs/types/view";
-import ViewModel from "../schema/View.model";
 
 class ViewService {
   private readonly viewModel;
@@ -9,7 +9,7 @@ class ViewService {
     this.viewModel = ViewModel;
   }
 
-  public async checkViewExistance(input: ViewInput): Promise<View> {
+  public async checkViewExistence(input: ViewInput): Promise<View> {
     return await this.viewModel
       .findOne({ memberId: input.memberId, viewRefId: input.viewRefId })
       .exec();
